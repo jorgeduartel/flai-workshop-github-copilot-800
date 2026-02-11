@@ -28,10 +28,12 @@ DEBUG = True
 
 # Configure for Codespace and local development
 CODESPACE_NAME = os.environ.get('CODESPACE_NAME')
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 
 if CODESPACE_NAME:
     ALLOWED_HOSTS.append(f'{CODESPACE_NAME}-8000.app.github.dev')
+    # Also allow the preview URL format
+    ALLOWED_HOSTS.append(f'{CODESPACE_NAME}-8000.preview.app.github.dev')
 else:
     # Allow all hosts in development if not in Codespaces
     ALLOWED_HOSTS.append('*')
@@ -166,6 +168,7 @@ CORS_ALLOW_HEADERS = [
 CSRF_TRUSTED_ORIGINS = []
 if CODESPACE_NAME:
     CSRF_TRUSTED_ORIGINS.append(f'https://{CODESPACE_NAME}-8000.app.github.dev')
+    CSRF_TRUSTED_ORIGINS.append(f'https://{CODESPACE_NAME}-8000.preview.app.github.dev')
 
 # Proxy settings for Codespace
 USE_X_FORWARDED_HOST = True
