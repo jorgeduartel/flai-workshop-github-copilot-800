@@ -2,6 +2,16 @@
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
+
+API Endpoints Configuration:
+    When running in GitHub Codespaces, the API will be accessible at:
+    https://$CODESPACE_NAME-8000.app.github.dev/api/[endpoint]/
+    
+    Example endpoints:
+    - https://$CODESPACE_NAME-8000.app.github.dev/api/activities/
+    - https://$CODESPACE_NAME-8000.app.github.dev/api/users/
+    - https://$CODESPACE_NAME-8000.app.github.dev/api/teams/
+
 Examples:
 Function views
     1. Add an import:  from my_app import views
